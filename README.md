@@ -187,6 +187,6 @@ So you now know where and how to create your new item, but what about the config
 
 TTT2 also has a folder structure you need to adhere to if you want to add a menu or submenu to their F1 menu. The good thing is they define some basic input fields you my want to use like a slider, checkbox etc. (Full list here: ).
 
-Those automatically change the ConVars for you except the binder, but the keybindings are handled differently, TTT2 uses its own system for that (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/ttt2/libraries/bind.lua).
+Those automatically change the ConVars for you except the binder,  since keybindings are handled differently. TTT2 uses its own system for that (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/ttt2/libraries/bind.lua).
 
 ## Example Addon
