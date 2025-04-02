@@ -1,4 +1,3 @@
-
 # TTT2 Item Guide (WIP)
 
 ## Prologue
@@ -7,8 +6,7 @@ I am just an addon developer that decided to dive into the code a little bit and
 
 Take these explanations with a grain of salt since i do not exactly know the reasons behind everything nor have the desire to analyze the whole codebase, corrections are welcome and encouraged. 
  
-This information is obtained from the TTT2 Github https://github.com/TTT-2/TTT2/. 
-And TTT2 has its own fileloader as stated on their official docs (https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/) and decoding of some existing addons.
+This information is obtained from the TTT2 Github https://github.com/TTT-2/TTT2/ and decoding of some existing addons. 
 
 ## Directory Structure
 
@@ -26,19 +24,22 @@ Optionally you could do:
                         * init.lua
                         * shared.lua
 
-The custom fileloader of TTT2 recognizes that there is a subfolder inside items/ and automatically searches for cl_init, init and shared lua files (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/gamemodes/terrortown/gamemode/shared/sh_item_module.lua).
+The custom fileloader* of TTT2 recognizes that there is a subfolder inside items/ and automatically searches for cl_init, init and shared lua files (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/gamemodes/terrortown/gamemode/shared/sh_item_module.lua).
 
 All files inside [myItemName] folder are automatically included in the code, so if you were to add a blabla.lua into the folder it would also get included and ran by client and server, although you would have to add your own AddCSLuaFile and or check for server and client. But init.lua, cl_init.lua and shared.lua are treated special (Based on the default behaviour of gmod itself https://wiki.facepunch.com/gmod/Understanding_AddCSLuaFile_and_include).
 
 __init.lua__ is only run on the server.
 
-__cl_init__ is only run on the client and automatically provided* to the client.
+__cl_init__ is only run on the client and automatically provided** to the client.
 
-__shared.lua__ is automatically provided* and run on both client and server
+__shared.lua__ is automatically provided** and run on both client and server
+<br/>
+<hr/>
 
 *Generally, a subfolder inside /items is a cleaner approach since you don't need to check or provide the files manually*
  
-*AddCSLuaFile is added by the fileloader and thus the addon creator does not need to add it manually
+*TTT2 has its own fileloader as stated on their official docs https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/
+**AddCSLuaFile is added by the fileloader and thus the addon creator does not need to add it manually
 
 ## Item Structure
 TTT2 has a new* way of adding items to the gamemode, They made their own item loader, and it expects the following structure (this is directly taken out of the TTT2 github https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/terrortown/entities/items/item_base/shared.lua):
