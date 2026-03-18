@@ -6,11 +6,11 @@ I am just an addon developer that decided to dive into the code a little bit and
 
 Take these explanations with a grain of salt since i do not exactly know the reasons behind everything nor have the desire to analyze the whole codebase, corrections are welcome and encouraged. 
  
-This information is obtained from the TTT2 Github https://github.com/TTT-2/TTT2/ and decoding of some existing addons. 
+This information is obtained from the TTT2 Github <https://github.com/TTT-2/TTT2/> and decoding of some existing addons. 
 
 ## Directory Structure
 
-Items should mimic the structure of the gamemode / base game (https://wiki.facepunch.com/gmod/Lua_Folder_Structure). What that means is the TTT2 Structure for Items looks like this:  lua/terrortown/entities/items/*.lua
+Items should mimic the structure of the gamemode / base game (<https://wiki.facepunch.com/gmod/Lua_Folder_Structure>). What that means is the TTT2 Structure for Items looks like this:  lua/terrortown/entities/items/*.lua
 So if you want add your own addon you would create a file structure like this: myAddonName/lua/terrortown/entities/items/myAddonName.lua.
 
 Optionally you could do:
@@ -24,9 +24,9 @@ Optionally you could do:
                         * init.lua
                         * shared.lua
 
-The custom fileloader* of TTT2 recognizes that there is a subfolder inside items/ and automatically searches for cl_init, init and shared lua files (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/gamemodes/terrortown/gamemode/shared/sh_item_module.lua).
+The custom fileloader* of TTT2 recognizes that there is a subfolder inside items/ and automatically searches for cl_init, init and shared lua files (<https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/gamemodes/terrortown/gamemode/shared/sh_item_module.lua>).
 
-All files inside [myItemName] folder are automatically included in the code, so if you were to add a blabla.lua into the folder it would also get included and ran by client and server, although you would have to add your own AddCSLuaFile and or check for server and client. But init.lua, cl_init.lua and shared.lua are treated special (Based on the default behaviour of gmod itself https://wiki.facepunch.com/gmod/Understanding_AddCSLuaFile_and_include).
+All files inside [myItemName] folder are automatically included in the code, so if you were to add a blabla.lua into the folder it would also get included and ran by client and server, although you would have to add your own AddCSLuaFile and or check for server and client. But init.lua, cl_init.lua and shared.lua are treated special (Based on the default behaviour of gmod itself <https://wiki.facepunch.com/gmod/Understanding_AddCSLuaFile_and_include>).
 
 __init.lua__ is only run on the server.
 
@@ -38,11 +38,11 @@ __shared.lua__ is automatically provided** and run on both client and server
 
 *Generally, a subfolder inside /items is a cleaner approach since you don't need to check or provide the files manually*
  
-*TTT2 has its own fileloader as stated on their official docs https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/
+*TTT2 has its own fileloader as stated on their official docs <https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/>
 **AddCSLuaFile is added by the fileloader and thus the addon creator does not need to add it manually
 
 ## Item Structure
-TTT2 has a new* way of adding items to the gamemode, They made their own item loader, and it expects the following structure (this is directly taken out of the TTT2 github https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/terrortown/entities/items/item_base/shared.lua):
+TTT2 has a new* way of adding items to the gamemode, They made their own item loader, and it expects the following structure (this is directly taken out of the TTT2 github <https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/terrortown/entities/items/item_base/shared.lua>):
 
 ```
 ---
@@ -180,13 +180,13 @@ end
 
 As you can see the code is already well documented. Please note that the code above would be located in a shared.lua.
 
-*I just assume they do, since I could not find the same structure for items in TTT. But I never really created a TTT addon, so I am not 100% sure, although the old way is still compatible as stated here: https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/#items.
+*I just assume they do, since I could not find the same structure for items in TTT. But I never really created a TTT addon, so I am not 100% sure, although the old way is still compatible as stated here: <https://docs.ttt2.neoxult.de/developers/basics/creating-an-addon/#items>.
 
 ## Menus and Configuration
 So you now know where and how to create your new item, but what about the configuration of it? What if I want to modify some property of my item? Well that is where ConVars and Menus come in.
 
 TTT2 also has a folder structure you need to adhere to if you want to add a menu or submenu to their F1 menu. The good thing is they define some basic input fields you my want to use like a slider, checkbox etc. (Full list here: ).
 
-Those automatically change the ConVars for you except the binder,  since keybindings are handled differently. TTT2 uses its own system for that (https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/ttt2/libraries/bind.lua).
+Those automatically change the ConVars for you except the binder,  since keybindings are handled differently. TTT2 uses its own system for that (<https://github.com/TTT-2/TTT2/blob/798de4c162e9d85749e34f15c82a7101c9a230a4/lua/ttt2/libraries/bind.lua>).
 
 ## Example Addon
